@@ -1,28 +1,27 @@
-import { useState } from 'react'
+import Header from './components/Header'
+import HelloSection from './components/HelloSection'
+import WaitlistForm from './components/WaitlistForm'
+import Footer from './components/Footer'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function Background() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
-      </div>
+    <div aria-hidden className="pointer-events-none fixed inset-0 -z-10">
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950" />
+      <div className="absolute left-1/2 top-0 -translate-x-1/2 h-[40rem] w-[40rem] bg-blue-600/20 blur-3xl rounded-full" />
     </div>
   )
 }
 
-export default App
+export default function App() {
+  return (
+    <div className="min-h-screen text-white font-inter">
+      <Background />
+      <Header />
+      <main>
+        <HelloSection />
+        <WaitlistForm />
+      </main>
+      <Footer />
+    </div>
+  )
+}
